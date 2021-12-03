@@ -72,6 +72,7 @@ public class MesaProductosController {
     public void actualizar(@RequestBody Mesa_Producto m1){
         Mesa_Producto mesaActual = mesaProductoRepo.findById(m1.getId()).orElse(null);
         mesaActual.setListaProductos(m1.getListaProductos());
+        mesaActual.setPrecioTotal(m1.getPrecioTotal());
         
         mesaProductoRepo.save(mesaActual);
     }

@@ -9,6 +9,6 @@ public class LaCorteApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(LaCorteApplication.class, args);
 	}
-	
+
 }
  

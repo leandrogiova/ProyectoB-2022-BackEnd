@@ -7,12 +7,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import lombok.Data;
+
+
 
 
 @Entity
 @Table(name="Producto")
-@Data
 public class Producto {
 
     @Id
@@ -29,13 +29,18 @@ public class Producto {
     private int precio;
 
 
+    @Column(name = "enStock")
+    private boolean enStock;
+
+
     public Producto(){        
     }
-    public Producto(Long id, String nombre, int precio, int numeroProducto) {
+    public Producto(Long id, String nombre, int precio, int numeroProducto, boolean enStock) {
         this.id = id;
         this.numeroProducto = numeroProducto;
         this.nombre = nombre;
         this.precio = precio;
+        this.enStock = enStock;
 
     }
 
@@ -69,4 +74,11 @@ public class Producto {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     } 
+
+    public boolean getEnStock(){
+        return enStock;
+    }
+    public void setEntock(boolean enStock){
+        this.enStock = enStock;
+    }
 }

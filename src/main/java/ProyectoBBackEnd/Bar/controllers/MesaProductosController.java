@@ -72,8 +72,14 @@ public class MesaProductosController {
     @PostMapping("/updateMesa")
     public void actualizar(@RequestBody Mesa_Producto m1){
         Mesa_Producto mesaActual = mesaProductoRepo.findById(m1.getId()).orElse(null);
+
+
+        mesaActual.setNumero_mesa(m1.getNumero_mesa());
+        mesaActual.setEstado(m1.getEstado());
+        mesaActual.setFecha(m1.getFecha());
         mesaActual.setListaProductos(m1.getListaProductos());
         mesaActual.setPrecioTotal(m1.getPrecioTotal());
+        mesaActual.setPrecioTemporal(m1.getPrecioTemporal());
         
         mesaProductoRepo.save(mesaActual);
     }

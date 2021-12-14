@@ -32,15 +32,18 @@ public class Producto {
     @Column(name = "enStock")
     private boolean enStock;
 
+    @Column(name = "cobrado")
+    private boolean cobrado;
 
     public Producto(){        
     }
-    public Producto(Long id, String nombre, int precio, int numeroProducto, boolean enStock) {
+    public Producto(Long id, String nombre, int precio, int numeroProducto, boolean enStock, boolean cobrado) {
         this.id = id;
         this.numeroProducto = numeroProducto;
         this.nombre = nombre;
         this.precio = precio;
         this.enStock = enStock;
+        this.cobrado = cobrado;
 
     }
 
@@ -81,4 +84,12 @@ public class Producto {
     public void setEntock(boolean enStock){
         this.enStock = enStock;
     }
+
+    public boolean getCobrado(){
+        return cobrado;
+    }
+    public void setCobrado(boolean cobrado){
+        this.cobrado = cobrado;
+    }
+
 }

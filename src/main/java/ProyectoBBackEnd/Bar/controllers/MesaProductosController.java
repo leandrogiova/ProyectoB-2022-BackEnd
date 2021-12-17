@@ -71,7 +71,9 @@ public class MesaProductosController {
 
     @PostMapping("/updateMesa")
     public void actualizar(@RequestBody Mesa_Producto m1){
+        System.out.println("\n\n\n\n\n\nViendo la mes aque llego" + m1.getId() + m1.getNumero_mesa() + m1.getListaProductos() + "\n\nproductos cobrados" + m1.getProductosCobrados() + m1.getPrecioTemporal()+ m1.getPrecioTotal() +  "\n\n\n\n\n\n\n");
         Mesa_Producto mesaActual = mesaProductoRepo.findById(m1.getId()).orElse(null);
+
 
 
         mesaActual.setNumero_mesa(m1.getNumero_mesa());
@@ -80,7 +82,9 @@ public class MesaProductosController {
         mesaActual.setListaProductos(m1.getListaProductos());
         mesaActual.setPrecioTotal(m1.getPrecioTotal());
         mesaActual.setPrecioTemporal(m1.getPrecioTemporal());
-        
+        mesaActual.setProductosCobrados(m1.getProductosCobrados());
+        System.out.println("\n\n\n\nmesa m1" + m1);
+
         mesaProductoRepo.save(mesaActual);
     }
 

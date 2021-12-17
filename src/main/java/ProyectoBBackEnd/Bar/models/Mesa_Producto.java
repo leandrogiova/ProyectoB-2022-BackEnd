@@ -2,13 +2,13 @@ package ProyectoBBackEnd.Bar.models;
 
 import java.time.*;
 import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+
 
 @Entity
 public class Mesa_Producto {
@@ -41,11 +41,15 @@ public class Mesa_Producto {
     @Column(name = "detalle")
     private String detalle;
 
+    @OneToMany()
+    @Column(name = "productosCobrados")
+    private List<Producto> productosCobrados;
+
 
     public Mesa_Producto(){
     }
     public Mesa_Producto(Long id, Long numero_mesa, List<Producto> listaProductos, boolean estado, LocalDateTime fecha,
-            int precioTotal, int precioTemporal, String formaDePago, String detalle) {
+            int precioTotal, int precioTemporal, String formaDePago, String detalle, List<Producto> productosCobrados) {
         this.id = id;
         this.numero_mesa = numero_mesa;
         this.listaProductos = listaProductos;
@@ -55,6 +59,7 @@ public class Mesa_Producto {
         this.precioTemporal = precioTemporal;
         this.formaDePago = formaDePago;
         this.detalle = detalle;
+        this.productosCobrados = productosCobrados;
     }
 
 
@@ -127,6 +132,13 @@ public class Mesa_Producto {
     }
     public void setDetalle(String detalle) {
         this.detalle = detalle;
+    }
+
+    public void setProductosCobrados(List<Producto> productosCobrados){
+        this.productosCobrados = productosCobrados;
+    }
+    public List<Producto> getProductosCobrados(){
+        return productosCobrados;
     }
 
 }

@@ -11,4 +11,5 @@ public class LaCorteApplication {
 	}
 
 }
- 
+//Para levantar la base de datos
+//sudo /opt/lampp/manager-linux-x64.run

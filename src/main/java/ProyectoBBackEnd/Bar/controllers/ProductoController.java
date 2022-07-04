@@ -1,3 +1,4 @@
+
 package ProyectoBBackEnd.Bar.controllers;
 
 import java.util.List;
@@ -21,6 +22,7 @@ public class ProductoController {
     @Autowired
     private ProductoService productoService;
 
+
     @GetMapping("/lista")
     public List<Producto> todosLosProductos(){
         return productoService.getAllProductos();
@@ -30,5 +32,6 @@ public class ProductoController {
     public void enviarProducto(@RequestBody Producto p1){
         productoService.enviarProducto(p1);
     }
+
 
 }

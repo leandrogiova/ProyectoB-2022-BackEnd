@@ -33,6 +33,7 @@ public class MesaProductosController {
     private LocalDateTime fecha1;
     private LocalDateTime fecha2;
 
+
     @GetMapping("/lista")
     public List<Mesa_Producto> mesasAbiertas(){
       
@@ -55,6 +56,7 @@ public class MesaProductosController {
         mesaProductosService.enviarProductoMesa(m1);
     }
 
+
     @PostMapping("/cobrarMesa")
     public void cobrarMesa(@RequestBody Mesa_Producto m1){
 
@@ -73,8 +75,6 @@ public class MesaProductosController {
     public void actualizar(@RequestBody Mesa_Producto m1){
         System.out.println("\n\n\n\n\n\nViendo la mes aque llego" + m1.getId() + m1.getNumero_mesa() + m1.getListaProductos() + "\n\nproductos cobrados" + m1.getProductosCobrados() + m1.getPrecioTemporal()+ m1.getPrecioTotal() +  "\n\n\n\n\n\n\n");
         Mesa_Producto mesaActual = mesaProductoRepo.findById(m1.getId()).orElse(null);
-
-
 
         mesaActual.setNumero_mesa(m1.getNumero_mesa());
         mesaActual.setEstado(m1.getEstado());
@@ -102,6 +102,7 @@ public class MesaProductosController {
     
 
 
+
     @GetMapping("/Resumenes")
     public List<Mesa_Producto> resumenes(){
 
@@ -123,5 +124,7 @@ public class MesaProductosController {
             }
         }
         return lista2;
-    } 
+    }
+    
+
  }

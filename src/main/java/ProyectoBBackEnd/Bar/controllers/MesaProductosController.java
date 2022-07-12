@@ -53,7 +53,10 @@ public class MesaProductosController {
 
     @PostMapping("/envio")
     public void enviarProductoAMesa(@RequestBody Mesa_Producto m1){
+        System.out.println("m1.numero_DeMesa=" + m1.getNumero_mesa() + ", m1.listaProductos" + m1.getListaProductos());
+
         mesaProductosService.enviarProductoMesa(m1);
+
     }
 
 
